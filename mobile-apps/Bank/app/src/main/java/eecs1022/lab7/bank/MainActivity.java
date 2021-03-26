@@ -8,10 +8,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import eecs1022.lab7.bank.model.Bank;
+import eecs1022.lab7.bank.model.Client;
+
 public class MainActivity extends AppCompatActivity {
 
     /* Hint: How do you share the same bank object between button clicks (attached with controller methods) of the app? */
-
+    Bank b = new Bank();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,41 @@ public class MainActivity extends AppCompatActivity {
         Spinner spinner = (Spinner) view;
         String string = spinner.getSelectedItem().toString();
         return string;
+    }
+
+    private void computeButtonAddANewAccount(View view){
+        String textClientName = getInputOfTextField(R.id.inputClientName);
+        String textInitBalance = getInputOfTextField(R.id.inputInitBalance);
+        double InitBalance = Double.parseDouble(textInitBalance);
+
+        Client x = new Client(textClientName, InitBalance);
+
+
+        this.b.addClient(textClientName, InitBalance);
+        setContentsOfTextView(R.id.labelOutput, b.getStatus());
+    }
+
+    private void computeButtonConfirm(View view){
+        String textServiceType = getItemSelected(R.id.optionService);
+        String textToAccount = getInputOfTextField(R.id.inputToAccount);
+        String textFromAccount = getInputOfTextField(R.id.inputFromAccount);
+        String textAmount = getInputOfTextField(R.id.inputAmount);
+        String textClientName = getInputOfTextField(R.id.inputClientName);
+
+        double amount = Double.parseDouble(textAmount);
+
+        if(textServiceType.equals("DEPOSIT")){
+
+            this.b.deposit(textToAccount, amount);
+        }
+        else if(textServiceType.equals("WITHDRAW")){
+
+            this.b.withdraw(textFromAccount, amount);
+        }
+        else if(textServiceType.equals("TRANSFER")){
+            this.b.transfer(textFromAccount, textToAccount, amount);
+        }
+        setContentsOfTextView(R.id.labelOutput, b.getStatus());
     }
 
     /* Hints on controller methods:

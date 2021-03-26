@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Bank</string>
+    <string name="app_name">Parth Sharma (218057182)</string>
+    <string-array name= "Services">
+        <item>DEPOSIT</item>
+        <item>WITHDRAW</item>
+        <item>TRANSFER</item>
+    </string-array>
 </resources>

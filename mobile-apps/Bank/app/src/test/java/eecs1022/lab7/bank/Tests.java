@@ -87,7 +87,7 @@ public class Tests {
 
     @Test
     public void test_03a() {
-        Transaction b = new Transaction();
+        Bank b = new Bank();
 
         /*
          * A bank's status is defined in the "Status of Bank" section of your lab PDF instructions.
@@ -122,7 +122,7 @@ public class Tests {
 
     @Test
     public void test_03b() {
-        Transaction b = new Transaction();
+        Bank b = new Bank();
 
         b.addClient("Heeyeon", -23.5);
         assertEquals("Error: Non-Positive Initial Balance", b.getStatus());
@@ -197,7 +197,7 @@ public class Tests {
 
     @Test
     public void test_03c() {
-        Transaction b = new Transaction();
+        Bank b = new Bank();
         b.addClient("Heeyeon", 213.4);
         b.addClient("Jiyoon", 239.4);
         b.addClient("Sunhye", 332.6);

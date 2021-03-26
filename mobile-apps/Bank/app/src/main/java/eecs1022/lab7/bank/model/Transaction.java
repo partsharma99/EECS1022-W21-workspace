@@ -1,16 +1,22 @@
 package eecs1022.lab7.bank.model;
 
 public class Transaction {
+    String transactionType;
+    double amount;
+    String status;
 
-    private double amount;
-    private String method;
+    public Transaction(){
 
-    public Transaction(String method, double amount){
-        this.method = method;
+    }
+
+    public Transaction(String transactionType, double amount) {
+        this.transactionType = transactionType;
         this.amount = amount;
-    }
-    public String getStatus(){
-        return("Transaction " + this.method + ": $" + this.amount);
+        this.status = "Transaction " + this.transactionType + ": $" + String.format("%.2f", amount);
     }
 
+    public String getStatus() {
+        return status;
+    }
 }
+
