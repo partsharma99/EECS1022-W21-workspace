@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Parth Sharma (218057182)</string>
+    <string-array name = "Player">
+        <item>Player X</item>
+        <item>Player O</item>
+
+    </string-array>
+</resources>
